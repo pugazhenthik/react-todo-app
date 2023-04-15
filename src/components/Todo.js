@@ -54,24 +54,10 @@ function Todo() {
     setTodos([...todos, data]);
   };
 
-  const markImportant = (id) => {
+  const markToggle = (id, type) => {
     const newTodos = [...todos];
     const index = newTodos.findIndex((todo) => id === todo.id);
-    newTodos[index].isImportant = !newTodos[index].isImportant;
-    setTodos(newTodos);
-  };
-
-  const markCompleted = (id) => {
-    const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => id === todo.id);
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
-  };
-
-  const markArchived = (id) => {
-    const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => id === todo.id);
-    newTodos[index].isArchived = !newTodos[index].isArchived;
+    newTodos[index][type] = !newTodos[index][type];
     setTodos(newTodos);
   };
 
@@ -87,12 +73,7 @@ function Todo() {
           todosImportantCount={todosImportantCount}
           todosArchivedCount={todosArchivedCount}
         ></TodoFilter>
-        <TodoList
-          todos={filteredTodos}
-          markImportant={markImportant}
-          markArchived={markArchived}
-          markCompleted={markCompleted}
-        ></TodoList>
+        <TodoList todos={filteredTodos} markToggle={markToggle}></TodoList>
         <AddTodo addTodo={addTodo}></AddTodo>
       </div>
     </div>

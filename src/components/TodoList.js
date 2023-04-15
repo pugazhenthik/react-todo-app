@@ -4,7 +4,7 @@ import Archive from './icons/Archive';
 import Check from './icons/Check';
 import Scheduled from './icons/Scheduled';
 
-function TodoList({ todos, markImportant, markArchived, markCompleted }) {
+function TodoList({ todos, markToggle }) {
   return (
     <div className="my-4 h-4/5 overflow-scroll">
       {todos.map((todo, i) => (
@@ -15,7 +15,7 @@ function TodoList({ todos, markImportant, markArchived, markCompleted }) {
           <div className="flex text-slate-500">
             <div className="flex">
               <button
-                onClick={() => markCompleted(todo.id)}
+                onClick={() => markToggle(todo.id, 'isCompleted')}
                 className="items-center rounded-md"
               >
                 {todo.isCompleted ? <Check></Check> : <Scheduled></Scheduled>}
@@ -23,13 +23,13 @@ function TodoList({ todos, markImportant, markArchived, markCompleted }) {
             </div>
             <div className="pl-4 flex-grow text-slate-700">{todo.todo}</div>
             <button
-              onClick={() => markImportant(todo.id)}
+              onClick={() => markToggle(todo.id, 'isImportant')}
               className="ml-2 h-8 hover:bg-slate-200 p-1 rounded-md"
             >
               <Important isImportant={todo.isImportant}></Important>
             </button>
             <button
-              onClick={() => markArchived(todo.id)}
+              onClick={() => markToggle(todo.id, 'isArchived')}
               className="ml-2 h-8 hover:bg-slate-200 p-1 rounded-md"
             >
               <Archive></Archive>

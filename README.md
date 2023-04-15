@@ -1,4 +1,4 @@
-# Simple React ToDo App
+# Simple React Todo App
 
 ![Todo preview](./public/preview.png?raw=true)
 

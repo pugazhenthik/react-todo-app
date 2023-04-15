@@ -5,7 +5,7 @@ function AddTodo({ addTodo }) {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    addTodo(todo);
+    if (todo.length > 0) addTodo(todo);
     setTodo('');
   };
   return (
