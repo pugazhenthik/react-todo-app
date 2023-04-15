@@ -43,6 +43,7 @@ const initialTodos = [
 
 function Todo() {
   const [todos, setTodos] = useState(initialTodos);
+
   const addTodo = (todo) => {
     const data = {
       id: todos.length + 1,

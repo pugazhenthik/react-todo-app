@@ -3,7 +3,6 @@ import Important from './icons/Important';
 import Archive from './icons/Archive';
 
 function TodoList({ todos, markImportant, markArchived, markCompleted }) {
-  console.log('toto listing');
   return (
     <div className="my-4 h-4/5 overflow-scroll">
       {todos.map((todo, i) => (
@@ -13,7 +12,12 @@ function TodoList({ todos, markImportant, markArchived, markCompleted }) {
         >
           <div className="flex">
             <div className="items-start">
-              <input type="checkbox" />
+              <button
+                onClick={() => markCompleted(i)}
+                className="ml-2 h-8 hover:bg-slate-200 p-1 rounded-md"
+              >
+                <input type="checkbox" />
+              </button>
             </div>
             <div className="pl-4 flex-grow">{todo.todo}</div>
             <button

@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Important({ isImportant }) {
-  console.log(isImportant);
   if (isImportant) {
     return (
       <svg
