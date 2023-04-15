@@ -43,6 +43,35 @@ const initialTodos = [
 
 function Todo() {
   const [todos, setTodos] = useState(initialTodos);
+  const [filter, setFilter] = useState('All');
+
+  const filterTodos = todos.filter((todo) => {
+    if (filter === 'Scheduled') {
+      return !todo.isCompleted && !todo.isArchived;
+    } else if (filter === 'Important') {
+      return todo.isImportant && !todo.isArchived;
+    } else if (filter === 'Completed') {
+      return todo.isCompleted && !todo.isArchived;
+    } else {
+      return !todo.isArchived;
+    }
+  });
+
+  const todosCount = todos.filter((todo) => {
+    return !todo.isArchived;
+  }).length;
+
+  const todosScheduledCount = todos.filter((todo) => {
+    return !todo.isCompleted && !todo.isArchived;
+  }).length;
+
+  const todosCompletedCount = todos.filter((todo) => {
+    return todo.isCompleted && !todo.isArchived;
+  }).length;
+
+  const todosImportantCount = todos.filter((todo) => {
+    return todo.isImportant && !todo.isArchived;
+  }).length;
 
   const addTodo = (todo) => {
     const data = {
@@ -55,20 +84,23 @@ function Todo() {
     setTodos([...todos, data]);
   };
 
-  const markImportant = (index) => {
+  const markImportant = (id) => {
     const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => id === todo.id);
     newTodos[index].isImportant = !newTodos[index].isImportant;
     setTodos(newTodos);
   };
 
-  const markCompleted = (index) => {
+  const markCompleted = (id) => {
     const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => id === todo.id);
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
   };
 
-  const markArchived = (index) => {
+  const markArchived = (id) => {
     const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => id === todo.id);
     newTodos[index].isArchived = !newTodos[index].isArchived;
     setTodos(newTodos);
   };
@@ -76,9 +108,16 @@ function Todo() {
   return (
     <div className="flex max-w-5xl bg-blue-50 p-4 h-screen mx-auto">
       <div className="flex-grow relative p-4">
-        <TodoFilter></TodoFilter>
+        <TodoFilter
+          filter={filter}
+          setFilter={setFilter}
+          todosCount={todosCount}
+          todosScheduledCount={todosScheduledCount}
+          todosCompletedCount={todosCompletedCount}
+          todosImportantCount={todosImportantCount}
+        ></TodoFilter>
         <TodoList
-          todos={todos}
+          todos={filterTodos}
           markImportant={markImportant}
           markArchived={markArchived}
           markCompleted={markCompleted}
