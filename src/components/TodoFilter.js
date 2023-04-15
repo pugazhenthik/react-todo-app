@@ -8,6 +8,7 @@ function TodoFilter({
   todosScheduledCount,
   todosCompletedCount,
   todosImportantCount,
+  todosArchivedCount,
 }) {
   return (
     <div className="mb-4 mt-1">
@@ -34,6 +35,12 @@ function TodoFilter({
         text={'Important'}
         count={todosImportantCount}
         isActive={filter === 'Important'}
+      ></FilterButton>
+      <FilterButton
+        setFilter={setFilter}
+        text={'Archived'}
+        count={todosArchivedCount}
+        isActive={filter === 'Archived'}
       ></FilterButton>
     </div>
   );

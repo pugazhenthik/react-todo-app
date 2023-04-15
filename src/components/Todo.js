@@ -45,15 +45,18 @@ function Todo() {
   const [todos, setTodos] = useState(initialTodos);
   const [filter, setFilter] = useState('All');
 
-  const filterTodos = todos.filter((todo) => {
-    if (filter === 'Scheduled') {
-      return !todo.isCompleted && !todo.isArchived;
-    } else if (filter === 'Important') {
-      return todo.isImportant && !todo.isArchived;
-    } else if (filter === 'Completed') {
-      return todo.isCompleted && !todo.isArchived;
-    } else {
-      return !todo.isArchived;
+  const filteredTodos = todos.filter((todo) => {
+    switch (filter) {
+      case 'Scheduled':
+        return !todo.isCompleted && !todo.isArchived;
+      case 'Important':
+        return todo.isImportant && !todo.isArchived;
+      case 'Completed':
+        return todo.isCompleted && !todo.isArchived;
+      case 'Archived':
+        return todo.isArchived;
+      default:
+        return !todo.isArchived;
     }
   });
 
@@ -71,6 +74,10 @@ function Todo() {
 
   const todosImportantCount = todos.filter((todo) => {
     return todo.isImportant && !todo.isArchived;
+  }).length;
+
+  const todosArchivedCount = todos.filter((todo) => {
+    return todo.isArchived;
   }).length;
 
   const addTodo = (todo) => {
@@ -115,9 +122,10 @@ function Todo() {
           todosScheduledCount={todosScheduledCount}
           todosCompletedCount={todosCompletedCount}
           todosImportantCount={todosImportantCount}
+          todosArchivedCount={todosArchivedCount}
         ></TodoFilter>
         <TodoList
-          todos={filterTodos}
+          todos={filteredTodos}
           markImportant={markImportant}
           markArchived={markArchived}
           markCompleted={markCompleted}
