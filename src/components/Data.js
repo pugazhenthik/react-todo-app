@@ -1,0 +1,81 @@
+const todo = [
+  {
+    id: 1,
+    todo: 'Do something nice for someone I care about',
+    isCompleted: true,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 2,
+    todo: 'Contribute code or a monetary donation to an open-source software project Memorize the fifty states and their capitals',
+    isCompleted: false,
+    isImportant: true,
+    isArchived: false,
+  },
+  {
+    id: 3,
+    todo: 'Watch a classic movie',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 4,
+    todo: 'Contribute code or a monetary donation to an open-source software project ',
+    isCompleted: true,
+    isImportant: true,
+    isArchived: true,
+  },
+  {
+    id: 5,
+    todo: "Solve a Rubik's cube",
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 6,
+    todo: 'Write a thank you letter to an influential person in my life',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 7,
+    todo: 'Invite some friends over for a game night',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 8,
+    todo: 'Organize pantry',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 9,
+    todo: 'Buy a new house decoration',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 10,
+    todo: 'Draw and color a Mandala',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+  {
+    id: 11,
+    todo: 'Create a cookbook with favorite recipes',
+    isCompleted: false,
+    isImportant: false,
+    isArchived: false,
+  },
+];
+
+export default todo;

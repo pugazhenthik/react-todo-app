@@ -2,44 +2,7 @@ import React, { useState } from 'react';
 import AddTodo from './AddTodo';
 import TodoFilter from './TodoFilter';
 import TodoList from './TodoList';
-
-const initialTodos = [
-  {
-    id: 1,
-    todo: 'Do something nice for someone I care about',
-    isCompleted: true,
-    isImportant: false,
-    isArchived: false,
-  },
-  {
-    id: 2,
-    todo: 'Contribute code or a monetary donation to an open-source software project Memorize the fifty states and their capitals',
-    isCompleted: false,
-    isImportant: true,
-    isArchived: false,
-  },
-  {
-    id: 3,
-    todo: 'Watch a classic movie',
-    isCompleted: false,
-    isImportant: false,
-    isArchived: false,
-  },
-  {
-    id: 4,
-    todo: 'Contribute code or a monetary donation to an open-source software project ',
-    isCompleted: true,
-    isImportant: true,
-    isArchived: true,
-  },
-  {
-    id: 5,
-    todo: "Solve a Rubik's cube",
-    isCompleted: false,
-    isImportant: false,
-    isArchived: false,
-  },
-];
+import initialTodos from './Data';
 
 function Todo() {
   const [todos, setTodos] = useState(initialTodos);
