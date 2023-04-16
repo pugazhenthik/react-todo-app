@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AddTodo from './AddTodo';
 import TodoFilter from './TodoFilter';
 import TodoList from './TodoList';
-import initialTodos from './Data';
+import initialTodos from '../Data';
 
 function Todo() {
   const [todos, setTodos] = useState(initialTodos);
